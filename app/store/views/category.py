@@ -1,5 +1,4 @@
 from django.views import View
-from django.views.generic.edit import UpdateView, DeleteView
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 
@@ -27,18 +26,3 @@ class CategoryAddView(View):
         category = Category.objects.create(**category_data)
         return redirect('/categories/')
 
-
-class CategoryEditView(UpdateView):
-    model = Category
-    template_name = 'update_category.html'
-    fields = [
-        "title",
-        "description"
-    ]
-    success_url = "/"
-
-
-class CategoryDeleteView(DeleteView):
-    model = Category
-    success_url = '/'
-    template_name = "category.html"
