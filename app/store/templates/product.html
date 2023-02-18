@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Product detail{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="details">
+        <div class="details-img">
+            <img src="{{ product.image }}" alt="">
+        </div>
+        <div class="details-content">
+            <h3>{{ product.title }}</h3>
+            <h4>{{ product.category }}</h4>
+            <h5>Price: <span>{{ product.price }}$</span></h5>
+            <p>{{ product.description }}</p>
+            <p>added {{ product.created_at }}</p>
+            <div>
+                <p>
+                    <button class="cat-edit" type="submit">
+                        <a href="{% url 'product_edit' product.pk %}" style="color: white;">Edit</a>
+                    </button>
+                </p>
+                <form method="POST" action="{% url 'product_delete' product.pk %}">
+                    {% csrf_token %}
+                    <button class="cat-delete" type="submit">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

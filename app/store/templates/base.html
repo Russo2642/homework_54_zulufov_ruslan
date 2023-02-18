@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{% block title %}Base{% endblock %}</title>
+</head>
+<body>
+<header>
+        <a class="logo" href="/">
+            My market
+        </a>
+        <nav>
+            <ul>
+                <li><a href="{% url 'products' %}">Products</a></li> |
+                <li><a href="{% url 'categories' %}">Categories</a></li> |
+                <li><a href="{% url 'product_add' %}">Add Product</a></li> |
+                <li><a href="{% url 'category_add' %}">Add Сategory</a></li>
+                {% block menu %}{% endblock %}
+            </ul>
+        </nav>
+    </header>
+<div class="container">
+    {% block content %}{% endblock %}
+</div>
+</body>
+</html>

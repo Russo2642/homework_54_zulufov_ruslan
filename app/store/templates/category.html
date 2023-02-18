@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Categories{% endblock %}
+{% block content %}
+<div class="container">
+    <main class="categories">
+        <h3>Categories</h3>
+        <div class="categories-item">
+            {% for cat in category %}
+            <h3>{{ cat.title }}</h3>
+            <div>
+                <button class="cat-edit">Edit</button>
+                <button class="cat-delete">Delete</button>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+</div>
+{% endblock %}

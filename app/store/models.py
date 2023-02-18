@@ -9,7 +9,7 @@ class Category(models.Model):
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Дата и время обновления")
 
     def __str__(self):
-        return f"{self.title} - {self.created_at}"
+        return f"{self.title}"
 
     class Meta:
         verbose_name = 'Категория'

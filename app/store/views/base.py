@@ -9,4 +9,4 @@ class ProductsView(View):
         context = {
             'product': product
         }
-        return render(request, 'products.html', context=context)
+        return render(request, 'index.html', context=context)

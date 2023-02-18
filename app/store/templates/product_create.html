@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Add Product{% endblock %}
+{% block content %}
+<div class="container">
+    <main class="add-cat">
+        <h3>Add product</h3>
+        <form action="{% url 'product_add' %}" method="post">{% csrf_token %}
+            <input type="text" name="title" id="title" placeholder="title">
+            <input type="text" name="price" id="price" placeholder="Price">
+            <input type="text" name="image" id="image" placeholder="image Url">
+            <select name="category">
+                <option selected disabled>Select Category</option>
+
+                {% for cat in category %}
+                <option value="{{cat.id}}">{{cat.title}}</option>
+                {% endfor %}
+
+            </select>
+            <textarea name="description" id="description" cols="30" rows="10" placeholder="description"></textarea>
+            <button class="add-cat-btn">Add product</button>
+        </form>
+    </main>
+</div>
+{% endblock %}
